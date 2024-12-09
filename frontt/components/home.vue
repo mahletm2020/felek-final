@@ -278,6 +278,7 @@ body {
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  position: relative; /* Ensures proper alignment control */
 }
 
 .sound-wave {
@@ -286,10 +287,11 @@ body {
   gap: 0.6rem;
   pointer-events: none;
   justify-content: space-around;
+  max-width: 20%; /* Limits the space taken by waves */
 }
 
 .sound-wave div {
-  width: 10px;
+  width: 8px; /* Slightly smaller for better layout */
   background-color: #faf7f7;
   border-radius: 20px;
   animation: pulse 0.8s infinite ease-in-out alternate;
@@ -298,17 +300,18 @@ body {
 
 /* Dynamic wave heights */
 .left div:nth-child(1), .right div:nth-child(1) { height: 20px; }
-.left div:nth-child(2), .right div:nth-child(2) { height: 70px; }
-.left div:nth-child(3), .right div:nth-child(3) { height: 90px; }
-.left div:nth-child(4), .right div:nth-child(4) { height: 60px; }
-.left div:nth-child(5), .right div:nth-child(5) { height: 90px; }
-.left div:nth-child(6), .right div:nth-child(6) { height: 70px; }
-.left div:nth-child(7), .right div:nth-child(7) { height: 70px; }
-.left div:nth-child(8), .right div:nth-child(8) { height: 30px; }
+.left div:nth-child(2), .right div:nth-child(2) { height: 60px; }
+.left div:nth-child(3), .right div:nth-child(3) { height: 80px; }
+.left div:nth-child(4), .right div:nth-child(4) { height: 50px; }
+.left div:nth-child(5), .right div:nth-child(5) { height: 80px; }
+.left div:nth-child(6), .right div:nth-child(6) { height: 60px; }
+.left div:nth-child(7), .right div:nth-child(7) { height: 50px; }
+.left div:nth-child(8), .right div:nth-child(8) { height: 20px; }
 
 .sound-wave div:nth-child(odd) { animation-duration: 0.6s; }
 .sound-wave div:nth-child(even) { animation-duration: 1s; }
 
+/* Box Styling */
 .box {
   display: flex;
   align-items: center;
@@ -323,8 +326,35 @@ body {
   height: 70vh;
   border-radius: 8px;
   margin: 0 auto;
+  z-index: 1; /* Ensures it's on top */
+}
 
-  
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .sound-wave {
+    max-width: 15%; /* Reduce space for waves */
+  }
+
+  .sound-wave div {
+    width: 6px; /* Shrink wave width */
+    gap: 0.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sound-wave {
+    max-width: 10%;
+  }
+
+  .sound-wave div:nth-child(7),
+  .sound-wave div:nth-child(8) {
+    display: none; /* Remove last two waves */
+  }
+
+  .sound-wave div {
+    width: 5px;
+    height: 40px; /* Smaller wave heights */
+  }
 }
 
 .social-icons {

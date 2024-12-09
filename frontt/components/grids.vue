@@ -142,6 +142,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  
 }
 
 /* Small grid item */
@@ -171,7 +172,7 @@
 }
 
 /* Arrow overlay */
-.arrow-overlay {
+/* .arrow-overlay {
   position: absolute;
   bottom: 10px;
   right: 10px;
@@ -179,7 +180,7 @@
   height: 30px;
   background-color: rgb(255, 89, 0);
   mask: url('/icons/downarrow.svg') center / contain no-repeat;
-}
+} */
 
 /* Responsive design */
 @media (max-width: 1024px) {
